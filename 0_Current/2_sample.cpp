@@ -6,14 +6,16 @@ using namespace std;
 #define mp(a,b) make_pair(a,b)
 #define lli long long int
 
-int main() {
-    int t, n;
+int main() { 
+    // int t, n;
+  
+    // cin >> t;
 
-    cin >> t;
+    // while(t--) {
+    //     cin >> n;
+    // }
 
-    while(t--) {
-        cin >> n;
-    }
+    cout << "Hello";
 
     return 0;
 }
