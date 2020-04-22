@@ -1,7 +1,12 @@
 #include <bits/stdc++.h>
+using namespace std;
+
+// Initialize 2D vector
+int row,col;
+vector<vector<int>> v(row, vector<int> (col,0));
 
 /**
- * Display a list  
+ * Display a list
  */
 template<typename T> 
 void display(std::initializer_list<T> text) 
