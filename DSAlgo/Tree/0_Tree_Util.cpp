@@ -38,6 +38,48 @@ void preOrder(Node *root){
     preOrder(root -> r);
 }
 
+Node* deleteNode(Node* root, int key) {
+    if(!root) return root;
+
+    if(root -> x > key)
+        root -> l = deleteNode(root -> l, key);
+    else if(root -> x < key)
+        root -> r = deleteNode(root -> r, key);
+    else {
+        // Checking if node to be deleted is having only one child
+        if(!root -> l) {
+            Node *tmp = root -> r;
+            delete root;
+            return tmp;
+        }
+
+        if(!root -> r) {
+            Node *tmp = root -> l;
+            delete root;
+            return tmp;
+        }
+
+        // If both children are available, then find successor
+        // Assign key of Successor to the node to be deleted
+        // Delete Successor
+        Node *prev = root, *cur = root -> r;
+
+        while(cur -> l) {
+            prev = cur;
+            cur = cur -> l;
+        }
+        
+        if(prev != root)
+            prev -> l = cur -> r;
+        else
+            prev -> r = cur -> r; // If there's no successor
+
+        root -> x = cur -> x;
+        delete cur;
+    }
+    return root;
+}
+
 void insertInBST(Node* root, int i){
     if((root -> x) < i){
         if(!root -> r) {
